@@ -1,0 +1,11 @@
+/* ===========================================================================
+   Vire — Webfonts
+   Geometric sans: Plus Jakarta Sans (UI + display)
+   Mono: JetBrains Mono (occasional data / code)
+
+   NOTE: Loaded from Google Fonts CDN. To fully self-host, drop the .woff2
+   files into /fonts and replace these @import lines with @font-face rules.
+   Plus Jakarta Sans is an exact match (not a substitution).
+   =========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap");

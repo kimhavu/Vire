@@ -1,0 +1,181 @@
+/* ===========================================================================
+   Vire — Color tokens
+   Calm, minimal wellbeing palette: soft periwinkle/indigo + cool neutrals,
+   with quiet wellness accents (movement sage, nutrition apricot).
+   Base values first, semantic aliases below.
+   =========================================================================== */
+
+:root {
+  /* --- Brand: periwinkle / indigo ------------------------------------------ */
+  --brand-50:  #EDEFF7;
+  --brand-100: #DEE3F4;
+  --brand-200: #C5CEED;
+  --brand-300: #A9B5E8;
+  --brand-400: #8A99E0;
+  --brand-500: #6B7FD7; /* primary */
+  --brand-600: #5566C2;
+  --brand-700: #4453A0;
+  --brand-800: #38447C;
+  --brand-900: #2C3460;
+
+  /* --- Ink / neutral (cool-tinted) ----------------------------------------- */
+  --ink-900: #272B3D; /* primary text, near-black */
+  --ink-800: #353B52;
+  --ink-700: #474E68;
+  --ink-600: #5E657E;
+  --ink-500: #818AA1; /* muted text */
+  --ink-400: #A4ABBE;
+  --ink-300: #C8CCD9;
+  --ink-200: #E2E5EE;
+  --ink-100: #EDEFF4;
+  --ink-50:  #F6F7FB;
+  --white:   #FFFFFF;
+
+  /* --- Wellness accents (muted) -------------------------------------------- */
+  --sage-100: #E0EBE4;
+  --sage-300: #A7CBB4;
+  --sage-500: #6FA98C; /* movement / activity */
+  --sage-700: #4E7C66;
+
+  --apricot-100: #FBEADD;
+  --apricot-300: #F2C6A3;
+  --apricot-500: #E8A87C; /* nutrition / energy */
+  --apricot-700: #C47E52;
+
+  --lilac-100: #EFE9F6;
+  --lilac-500: #B49AD6; /* mindfulness / rest */
+
+  /* --- Semantic status (calm, never harsh) --------------------------------- */
+  --green-100: #E1F0E6;
+  --green-500: #5FA37E;
+  --green-700: #3F7A5C;
+
+  --amber-100: #FBEFD6;
+  --amber-500: #E0A95E;
+  --amber-700: #B47F34;
+
+  --coral-100: #FBE3DE;
+  --coral-500: #D77A6E; /* errors — terracotta, not fire-engine red */
+  --coral-700: #B0564B;
+
+  /* --- Semantic aliases ---------------------------------------------------- */
+  /* Text */
+  --text-primary:   var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted:     var(--ink-500);
+  --text-disabled:  var(--ink-400);
+  --text-inverse:   var(--white);
+  --text-brand:     var(--brand-600);
+  --text-link:      var(--brand-600);
+
+  /* Surfaces */
+  --surface-page:   #F8F9FC; /* app canvas — soft cool white */
+  --surface-card:   var(--white);
+  --surface-sunken: #F1F3FA;
+  --surface-raised: var(--white);
+  --surface-brand:  var(--brand-500);
+  --surface-brand-soft: var(--brand-50);
+  --surface-inverse: var(--ink-900);
+  --surface-overlay: rgba(39, 43, 61, 0.45); /* scrim */
+
+  /* Borders */
+  --border-subtle:  var(--ink-200);
+  --border-default: var(--ink-300);
+  --border-strong:  var(--ink-400);
+  --border-brand:   var(--brand-500);
+  --border-focus:   var(--brand-500);
+
+  /* Interactive brand */
+  --action-brand:        var(--brand-500);
+  --action-brand-hover:  var(--brand-600);
+  --action-brand-active: var(--brand-700);
+
+  /* Accent semantics */
+  --accent-movement:  var(--sage-500);
+  --accent-nutrition: var(--apricot-500);
+  --accent-rest:      var(--lilac-500);
+
+  /* Status */
+  --status-success:    var(--green-500);
+  --status-success-bg: var(--green-100);
+  --status-warning:    var(--amber-500);
+  --status-warning-bg: var(--amber-100);
+  --status-error:      var(--coral-500);
+  --status-error-bg:   var(--coral-100);
+  --status-info:       var(--brand-500);
+  --status-info-bg:    var(--brand-50);
+
+  /* Focus ring */
+  --ring-focus: 0 0 0 3px rgba(107, 127, 215, 0.35);
+}
+
+/* ===========================================================================
+   Dark theme — cool, periwinkle-tinted dark that mirrors the light mood.
+   Activated by [data-theme="dark"] on <html>. Remaps tint backgrounds,
+   chip text, surfaces, text and borders so existing components adapt with
+   no per-component changes.
+   =========================================================================== */
+[data-theme="dark"] {
+  /* Soft tint backgrounds (icon chips, badges) → dark translucent */
+  --brand-50:  #242A47;
+  --brand-100: #2E3658;
+  --brand-200: #3A4470;
+  --sage-100:  #1E3329;
+  --sage-300:  #3E6553;
+  --apricot-100: #392A1E;
+  --apricot-300: #6E4D33;
+  --lilac-100: #2B2540;
+  --green-100: #1C3327;
+  --amber-100: #392E19;
+  --coral-100: #392420;
+  --ink-50:  #20243A;
+  --ink-100: #262C44;
+  --ink-200: #323855;
+
+  /* Chip / accent text → lightened for contrast on dark chips */
+  --brand-600: #A9B5E8;
+  --brand-700: #BFC8EE;
+  --sage-700:  #A7CBB4;
+  --apricot-700: #F2C6A3;
+  --green-700: #8FC9A8;
+  --amber-700: #E6C58C;
+  --coral-700: #EBA99D;
+  --ink-700:   #C8CCD9;
+  --ink-600:   #AEB5CB;
+
+  /* Text */
+  --text-primary:   #ECEEF5;
+  --text-secondary: #AEB5CB;
+  --text-muted:     #828BA6;
+  --text-disabled:  #5E657E;
+  --text-brand:     #A9B5E8;
+  --text-link:      #A9B5E8;
+
+  /* Surfaces */
+  --surface-page:   #141726;
+  --surface-card:   #1E2236;
+  --surface-sunken: #191C2B;
+  --surface-raised: #262B42;
+  --surface-brand-soft: #232846;
+  --surface-inverse: #ECEEF5;
+  --surface-overlay: rgba(8, 10, 18, 0.62);
+
+  /* Borders */
+  --border-subtle:  #2A3048;
+  --border-default: #373E5A;
+  --border-strong:  #4A5172;
+
+  /* Navigaatiopalkin tausta (blur) */
+  --nav-bg: rgba(20, 23, 38, 0.86);
+
+  /* Status backgrounds stay dark via the *-100 overrides above */
+  --status-success-bg: var(--green-100);
+  --status-warning-bg: var(--amber-100);
+  --status-error-bg:   var(--coral-100);
+  --status-info-bg:    var(--brand-50);
+
+  /* Softer focus ring on dark */
+  --ring-focus: 0 0 0 3px rgba(138, 153, 224, 0.4);
+
+  color-scheme: dark;
+}
