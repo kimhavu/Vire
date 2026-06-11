@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6B7FD7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Vire">
+<title>Vire</title>
+<link rel="icon" href="assets/logo/vire-logomark.svg">
+<link rel="apple-touch-icon" href="assets/logo/vire-logomark.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+  #root { min-height: 100%; }
+  @media (min-width: 540px) { body { background: #E9EBF1; } }
+  html[data-theme="dark"] body { background: #0E1019; }
+  html[data-theme="dark"] #root > div { box-shadow: 0 0 0 1px var(--border-subtle); }
+  * { -webkit-tap-highlight-color: transparent; }
+  input, textarea { outline: none; }
+  input:focus, textarea:focus { border-color: var(--brand-400) !important; box-shadow: var(--ring-focus); }
+
+  /* splash */
+  #splash {
+    position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+    background: linear-gradient(150deg, var(--brand-600) 0%, var(--brand-500) 45%, var(--sage-500) 130%);
+    transition: opacity .5s ease; cursor: pointer;
+  }
+  #splash.hide { opacity: 0; pointer-events: none; }
+  #splash .wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; animation: splashIn .8s cubic-bezier(0.16,1,0.3,1) both; }
+  #splash img { width: 92px; height: 92px; animation: splashLogo 2.4s ease-in-out infinite; }
+  #splash .name { font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+  #splash .tag { font-size: 16px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  #splash .bar { width: 120px; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden; margin-top: 6px; }
+  #splash .bar span { display: block; height: 100%; background: #fff; border-radius: 999px; animation: splashBar 5s linear forwards; }
+  @keyframes splashIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes splashLogo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes splashBar { from { width: 0; } to { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { #splash img { animation: none; } }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="ds-bundle.js"></script>
+
+  <script type="text/babel" src="i18n.jsx"></script>
+  <script type="text/babel" src="store.jsx"></script>
+  <script type="text/babel" src="shell.jsx"></script>
+  <script type="text/babel" src="onboarding.jsx"></script>
+  <script type="text/babel" src="today.jsx"></script>
+  <script type="text/babel" src="liike.jsx"></script>
+  <script type="text/babel" src="ravinto.jsx"></script>
+  <script type="text/babel" src="history.jsx"></script>
+  <script type="text/babel" src="settings.jsx"></script>
+  <script type="text/babel" src="profiili.jsx"></script>
+
+  <script type="text/babel">
+    window.VS = window.VireDesignSystem_068680;
+
+    function Splash({ onDone, t }) {
+      React.useEffect(() => {
+        const id = setTimeout(onDone, 5000);
+        return () => clearTimeout(id);
+      }, []);
+      const [hide, setHide] = React.useState(false);
+      const dismiss = () => { setHide(true); setTimeout(onDone, 500); };
+      return (
+        <div id="splash" className={hide ? "hide" : ""} onClick={dismiss}>
+          <div className="wrap">
+            <img src="assets/logo/vire-logomark-white.svg" alt="Vire" />
+            <div className="name">Vire</div>
+            <div className="tag">{t("tagline")}</div>
+            <div className="bar"><span></span></div>
+          </div>
+        </div>
+      );
+    }
+
+    function Root() {
+      const store = window.useVireStore();
+      const [splash, setSplash] = React.useState(true);
+      const [tab, setTab] = React.useState("today");
+      const lang = store.state.settings.lang;
+      const t = React.useMemo(() => window.makeT(lang), [lang]);
+      const onLang = (v) => store.updateSettings({ lang: v });
+
+      if (splash) return <Splash onDone={() => setSplash(false)} t={t} />;
+      if (!store.state.onboarded) {
+        return <window.Onboarding t={t} lang={lang} onLang={onLang} onDone={(profile, goals) => store.completeOnboarding(profile, goals)} />;
+      }
+      if (tab === "liike") return <window.LiikeModule store={store} t={t} lang={lang} onHome={() => setTab("today")} />;
+      if (tab === "ravinto") return <window.RavintoModule store={store} t={t} lang={lang} onHome={() => setTab("today")} />;
+
+      const main = {
+        today: <window.TodayScreen store={store} t={t} lang={lang} onGo={setTab} />,
+        profiili: <window.ProfileModule store={store} t={t} lang={lang} />,
+      }[tab];
+
+      const items = [
+        { id: "today", label: t("nav_today"), icon: "house", active: tab === "today", onClick: () => setTab("today") },
+        { id: "liike", label: t("nav_move"), icon: "dumbbell", active: false, onClick: () => setTab("liike") },
+        { id: "ravinto", label: t("nav_food"), icon: "utensils", active: false, onClick: () => setTab("ravinto") },
+        { id: "profiili", label: t("nav_profile"), icon: "user-round", active: tab === "profiili", onClick: () => setTab("profiili") },
+      ];
+
+      return (
+        <window.AppFrame bottom={<window.BottomNav items={items} />}>{main}</window.AppFrame>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
+  </script>
+
+</body>
+</html>
