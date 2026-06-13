@@ -147,8 +147,8 @@
   --status-info:       var(--brand-500);
   --status-info-bg:    var(--brand-50);
 
-  /* Navigaatiopalkin tausta (light) */
-  --nav-bg: rgba(255, 255, 255, 0.74);
+  /* Navigaatiopalkin tausta (light) — kevyt liquid glass */
+  --nav-bg: rgba(255, 255, 255, 0.40);
 
   /* Etusivun immersiivinen pohja (hero tasoittuu tähän) — deep mauve */
   --home-base: #4A383B;
@@ -214,7 +214,7 @@
   --border-strong:  #4F4448;
 
   /* Navigaatiopalkin tausta (blur) */
-  --nav-bg: rgba(26, 22, 24, 0.72);
+  --nav-bg: rgba(26, 22, 24, 0.42);
 
   /* Etusivun immersiivinen pohja */
   --home-base: #241D1F;
@@ -447,8 +447,11 @@ button {
 
   /* splash */
   #splash {
-    position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
-    background: linear-gradient(155deg, #2B2528 0%, #5E464A 45%, #BCA5A8 130%);
+    position: fixed; top: 0; left: 0; right: 0;
+    bottom: calc(-1 * (env(safe-area-inset-bottom, 0px) + 28px));
+    min-height: 100dvh;
+    z-index: 9999; display: grid; place-items: center;
+    background: linear-gradient(168deg, #2B2528 0%, #4A383B 52%, #6E565A 100%);
     transition: opacity .5s ease; cursor: pointer;
   }
   #splash.hide { opacity: 0; pointer-events: none; }
@@ -472,7 +475,7 @@ button {
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
-/* @ds-bundle: {"format":3,"namespace":"VireDesignSystem_068680","components":[{"name":"Avatar","sourcePath":"components/data-display/Avatar.jsx"},{"name":"Badge","sourcePath":"components/data-display/Badge.jsx"},{"name":"Card","sourcePath":"components/data-display/Card.jsx"},{"name":"ProgressRing","sourcePath":"components/data-display/ProgressRing.jsx"},{"name":"StatTile","sourcePath":"components/data-display/StatTile.jsx"},{"name":"Button","sourcePath":"components/forms/Button.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"IconButton","sourcePath":"components/forms/IconButton.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"}],"sourceHashes":{"app/extras.jsx":"7232af4e7181","app/history.jsx":"5be3f1e24d89","app/i18n.jsx":"494645840be8","app/liike.jsx":"b7ee749419ae","app/onboarding.jsx":"6303ee3a7e67","app/profiili.jsx":"39fec291e8ff","app/ravinto.jsx":"9129241007dd","app/settings.jsx":"9054a0f32a44","app/shell.jsx":"33c29934634b","app/store.jsx":"b42fc8cf4f40","app/today.jsx":"90c74303e9e8","components/data-display/Avatar.jsx":"45c638631b6a","components/data-display/Badge.jsx":"ba66048983d4","components/data-display/Card.jsx":"27fbcbd15322","components/data-display/ProgressRing.jsx":"c76ba3c7153b","components/data-display/StatTile.jsx":"8cb73e9b51f6","components/forms/Button.jsx":"7e0fdff0c34b","components/forms/Checkbox.jsx":"a4f5ba11986e","components/forms/IconButton.jsx":"b4baaca12a9f","components/forms/Input.jsx":"8a5d3e58dae1","components/forms/SegmentedControl.jsx":"278f65f2e07f","components/forms/Switch.jsx":"b7b4c19eed04","ui_kits/mobile/LiikeModule.jsx":"02d798be60e0","ui_kits/mobile/NutritionScreen.jsx":"6ba80dcce3dc","ui_kits/mobile/ProfileScreen.jsx":"171df5c70fbe","ui_kits/mobile/RavintoModule.jsx":"0c22d89c2093","ui_kits/mobile/TodayScreen.jsx":"9824e4a1f2e6","ui_kits/mobile/kit-lib.jsx":"9017c1708a8d","ui_kits/web/OverviewView.jsx":"ee2dd27bb407","ui_kits/web/kit-lib.jsx":"84f49f224d52","ui_kits/web/views.jsx":"56363e24a330"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"VireDesignSystem_068680","components":[{"name":"Avatar","sourcePath":"components/data-display/Avatar.jsx"},{"name":"Badge","sourcePath":"components/data-display/Badge.jsx"},{"name":"Card","sourcePath":"components/data-display/Card.jsx"},{"name":"ProgressRing","sourcePath":"components/data-display/ProgressRing.jsx"},{"name":"StatTile","sourcePath":"components/data-display/StatTile.jsx"},{"name":"Button","sourcePath":"components/forms/Button.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"IconButton","sourcePath":"components/forms/IconButton.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"}],"sourceHashes":{"app/extras.jsx":"ba7e9ba730fa","app/history.jsx":"5be3f1e24d89","app/i18n.jsx":"494645840be8","app/liike.jsx":"b7ee749419ae","app/onboarding.jsx":"6303ee3a7e67","app/profiili.jsx":"39fec291e8ff","app/ravinto.jsx":"9129241007dd","app/settings.jsx":"9054a0f32a44","app/shell.jsx":"03b395e2f515","app/store.jsx":"b42fc8cf4f40","app/today.jsx":"90c74303e9e8","components/data-display/Avatar.jsx":"45c638631b6a","components/data-display/Badge.jsx":"ba66048983d4","components/data-display/Card.jsx":"27fbcbd15322","components/data-display/ProgressRing.jsx":"c76ba3c7153b","components/data-display/StatTile.jsx":"8cb73e9b51f6","components/forms/Button.jsx":"7e0fdff0c34b","components/forms/Checkbox.jsx":"a4f5ba11986e","components/forms/IconButton.jsx":"b4baaca12a9f","components/forms/Input.jsx":"8a5d3e58dae1","components/forms/SegmentedControl.jsx":"278f65f2e07f","components/forms/Switch.jsx":"b7b4c19eed04","ui_kits/mobile/LiikeModule.jsx":"02d798be60e0","ui_kits/mobile/NutritionScreen.jsx":"6ba80dcce3dc","ui_kits/mobile/ProfileScreen.jsx":"171df5c70fbe","ui_kits/mobile/RavintoModule.jsx":"0c22d89c2093","ui_kits/mobile/TodayScreen.jsx":"9824e4a1f2e6","ui_kits/mobile/kit-lib.jsx":"9017c1708a8d","ui_kits/web/OverviewView.jsx":"ee2dd27bb407","ui_kits/web/kit-lib.jsx":"84f49f224d52","ui_kits/web/views.jsx":"56363e24a330"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -831,7 +834,7 @@ function MessagesView({
         background: me ? "var(--brand-500)" : "var(--surface-card)",
         color: me ? "#fff" : "var(--text-primary)",
         border: me ? "none" : "1px solid var(--border-subtle)",
-        boxShadow: me ? "0 4px 12px rgba(142,114,118,0.25)" : "var(--shadow-xs)"
+        boxShadow: me ? "0 4px 12px rgba(142,114,118,0.28)" : "var(--shadow-xs)"
       }
     }, m.text), m.t ? /*#__PURE__*/React.createElement("span", {
       style: {
@@ -5768,14 +5771,14 @@ function BottomNav({
       border: "none",
       cursor: "pointer",
       borderRadius: 20,
-      background: tab.active ? "var(--brand-500)" : "transparent",
-      boxShadow: tab.active ? "0 6px 16px rgba(142,114,118,0.45)" : "none",
+      background: tab.active ? "var(--btn-primary-bg)" : "transparent",
+      boxShadow: tab.active ? "0 6px 16px rgba(142,114,118,0.42)" : "none",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       gap: 3,
       padding: "9px 0 7px",
-      color: tab.active ? "#fff" : "var(--nav-ink, var(--ink-500))",
+      color: tab.active ? "var(--btn-primary-ink)" : "var(--nav-ink, var(--ink-500))",
       fontFamily: "var(--font-sans)",
       transition: "background .24s var(--ease-out), color .24s"
     }
@@ -5860,6 +5863,7 @@ function HeroBg() {
       left: 0,
       right: 0,
       height: 540,
+      background: "var(--home-base, #4A383B)",
       willChange: "transform, opacity"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -5881,8 +5885,11 @@ function HeroBg() {
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "absolute",
-      inset: 0,
-      background: "linear-gradient(to bottom, rgba(24,14,16,0.42) 0%, rgba(24,14,16,0.05) 26%, rgba(74,56,59,0) 50%, var(--home-base, #4A383B) 92%)"
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 760,
+      background: "linear-gradient(to bottom, rgba(24,14,16,0.46) 0px, rgba(24,14,16,0.06) 140px, rgba(74,56,59,0) 270px, var(--home-base, #4A383B) 460px, var(--home-base, #4A383B) 760px)"
     }
   })));
 }
@@ -12040,6 +12047,36 @@ const STR = {
   day_goals:    { fi: "Päivän tavoitteet", en: "Today's goals", sv: "Dagens mål" },
   start_logging:{ fi: "Aloita kirjaaminen", en: "Start logging", sv: "Börja logga" },
   in_good_vire: { fi: "Hyvässä vireessä", en: "In good shape", sv: "I god form" },
+
+  /* motivoivat tekstit mittarin alla — vaihtuvat päivän mittaan */
+  motiv_dawn:    { fi: "Uusi aamu, uusi mahdollisuus.", en: "A new morning, a fresh chance.", sv: "En ny morgon, en ny chans." },
+  motiv_morning: { fi: "Pieni alku riittää tänään.", en: "A small start is enough today.", sv: "En liten start räcker idag." },
+  motiv_midday:  { fi: "Hyvä rytmi — jatka samaan malliin.", en: "Nice rhythm — keep it going.", sv: "Fin rytm — fortsätt så." },
+  motiv_afternoon:{ fi: "Vielä ehtii liikahtaa hetken.", en: "There's still time to move a little.", sv: "Det finns tid att röra på dig lite." },
+  motiv_evening: { fi: "Päivä on ollut sinun. Hengähdä.", en: "The day's been yours. Breathe.", sv: "Dagen har varit din. Andas." },
+  motiv_night:   { fi: "Lepo on osa edistymistä.", en: "Rest is part of progress.", sv: "Vila är en del av framsteget." },
+  motiv_almost:  { fi: "Olet aivan lähellä tavoitetta!", en: "You're so close to your goal!", sv: "Du är så nära ditt mål!" },
+  motiv_done:    { fi: "Päivän tavoite täynnä — upeaa työtä!", en: "Goal complete — wonderful work!", sv: "Målet klart — fantastiskt jobbat!" },
+  motiv_kind1:   { fi: "Ole lempeä itsellesi tänään.", en: "Be gentle with yourself today.", sv: "Var snäll mot dig själv idag." },
+  motiv_kind2:   { fi: "Jokainen askel on askel eteenpäin.", en: "Every step is a step forward.", sv: "Varje steg är ett steg framåt." },
+
+  /* Oivallukset */
+  insights_t:    { fi: "Oivallukset", en: "Insights", sv: "Insikter" },
+  ins_more:      { fi: "Kirjaa muutama päivä, niin avaamme oivalluksia edistymisestäsi.", en: "Log a few days and we'll unlock insights about your progress.", sv: "Logga några dagar så låser vi upp insikter om dina framsteg." },
+  ins_streak:    { fi: "{n} päivän putki", en: "{n}-day streak", sv: "{n} dagars svit" },
+  ins_streak_s:  { fi: "Olet kirjannut yhtäjaksoisesti. Hieno tapa!", en: "You've logged without a break. Great habit!", sv: "Du har loggat utan avbrott. Fin vana!" },
+  ins_steptrend_up:   { fi: "Askeleet nousussa", en: "Steps trending up", sv: "Stegen ökar" },
+  ins_steptrend_up_s: { fi: "{n} % enemmän kuin edellisinä päivinä.", en: "{n}% more than the previous days.", sv: "{n}% mer än föregående dagar." },
+  ins_steptrend_dn:   { fi: "Askeleet laskussa", en: "Steps trending down", sv: "Stegen minskar" },
+  ins_steptrend_dn_s: { fi: "Pieni kävely tänään kääntäisi suunnan.", en: "A short walk today would turn it around.", sv: "En kort promenad idag vänder det." },
+  ins_bestday:   { fi: "Aktiivisin päiväsi: {d}", en: "Your most active day: {d}", sv: "Din mest aktiva dag: {d}" },
+  ins_bestday_s: { fi: "Silloin liikut eniten. Hyvä tietää suunnitellessa.", en: "That's when you move most. Handy for planning.", sv: "Då rör du dig mest. Bra att veta vid planering." },
+  ins_water:     { fi: "Vesi hyvällä mallilla", en: "Hydration on track", sv: "Vätskan på rätt nivå" },
+  ins_water_s:   { fi: "Tavoite täynnä {n}/7 päivänä tällä viikolla.", en: "Goal met on {n}/7 days this week.", sv: "Mål nått {n}/7 dagar i veckan." },
+  ins_mood:      { fi: "Fiilis ja liike kulkevat yhdessä", en: "Mood and movement go together", sv: "Känsla och rörelse hör ihop" },
+  ins_mood_s:    { fi: "Hyvät fiilikset osuvat aktiivisille päiville.", en: "Better moods land on your active days.", sv: "Bättre känslor infaller på aktiva dagar." },
+  ins_energy:    { fi: "Keskimäärin {n} kcal / päivä", en: "Avg {n} kcal / day", sv: "I snitt {n} kcal / dag" },
+  ins_energy_s:  { fi: "Viime päivien energiansaannin keskiarvo.", en: "Average energy intake over recent days.", sv: "Genomsnittligt energiintag de senaste dagarna." },
   add_steps_t:  { fi: "Askeleet", en: "Steps", sv: "Steg" },
   add_manually: { fi: "Lisää käsin tai aseta koko luku", en: "Add manually or set the total", sv: "Lägg till manuellt eller ange totalen" },
   set_value:    { fi: "Aseta luku…", en: "Set value…", sv: "Ange värde…" },
@@ -12223,6 +12260,8 @@ const STR = {
   export_pdf_s: { fi: "Tulostettava yhteenveto valitulta jaksolta", en: "Printable summary for the period", sv: "Utskrivbar sammanfattning för perioden" },
   export_note:  { fi: "Tiedot muodostetaan laitteellasi. Mitään ei lähetetä palvelimelle.", en: "Files are generated on your device. Nothing is sent to a server.", sv: "Filer skapas på din enhet. Inget skickas till en server." },
   export_empty: { fi: "Ei vielä kirjauksia vietäväksi.", en: "No entries to export yet.", sv: "Inga poster att exportera än." },
+  export_close: { fi: "Sulje", en: "Close", sv: "Stäng" },
+  export_print: { fi: "Tulosta / Tallenna PDF", en: "Print / Save PDF", sv: "Skriv ut / Spara PDF" },
   export_done:  { fi: "Ladattu", en: "Downloaded", sv: "Nedladdad" },
 
   /* lisenssin vahvistus */
@@ -12304,7 +12343,7 @@ Object.assign(window, { STR, makeT, DOW_SHORT, DOW_LONG, MONTHS, MONTHS_SHORT, l
    Kaikki alkaa nollasta. v0.1.1: asetukset, kieli, teema, fiilis, pilvisynkkaus. */
 
 const STORE_KEY = "vire.app.v1";
-const APP_VERSION = "0.1.1";
+const APP_VERSION = "0.2.1";
 
 /* ---------- päivä & viikko ---------- */
 function dateKey(d = new Date()) {
@@ -12528,7 +12567,7 @@ function VireMark({ size = 26, color = "var(--brand-500)", dot = "var(--apricot-
 function AppFrame({ children, bottom, immersive }) {
   return (
     <div style={{
-      width: "100%", maxWidth: 520, margin: "0 auto", minHeight: "100%",
+      width: "100%", maxWidth: 520, margin: "0 auto", minHeight: "100dvh",
       background: immersive ? "var(--home-base, #4A383B)" : "var(--surface-page)", position: "relative",
       display: "flex", flexDirection: "column",
       boxShadow: "0 0 0 1px var(--border-subtle)",
@@ -12547,10 +12586,10 @@ function BottomNav({ items }) {
       bottom: "max(16px, env(safe-area-inset-bottom))",
       width: "min(92%, 440px)", zIndex: 30,
       borderRadius: 26, padding: 6,
-      background: "var(--nav-bg, rgba(255,255,255,0.72))",
-      backdropFilter: "blur(26px) saturate(1.7)", WebkitBackdropFilter: "blur(26px) saturate(1.7)",
-      border: "1px solid rgba(255,255,255,0.35)",
-      boxShadow: "0 12px 36px rgba(8,28,25,0.28), inset 0 1px 0 rgba(255,255,255,0.45)",
+      background: "var(--nav-bg, rgba(255,255,255,0.4))",
+      backdropFilter: "blur(30px) saturate(1.9)", WebkitBackdropFilter: "blur(30px) saturate(1.9)",
+      border: "1px solid rgba(255,255,255,0.4)",
+      boxShadow: "0 14px 40px rgba(8,28,25,0.24), inset 0 1px 0 rgba(255,255,255,0.5)",
     }}>
       <div style={{ display: "flex", gap: 4 }}>
         {items.map((tab) => (
@@ -12599,8 +12638,8 @@ function HeroBg() {
       raf = requestAnimationFrame(() => {
         raf = 0;
         const y = window.scrollY || document.documentElement.scrollTop || 0;
-        el.style.transform = `translateY(${y * 0.32}px)`;
-        el.style.opacity = String(Math.max(0, 1 - y / 460));
+        el.style.transform = `translate3d(0, ${(y * 0.28).toFixed(1)}px, 0)`;
+        el.style.opacity = String(Math.max(0, 1 - y / 520));
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -12608,7 +12647,7 @@ function HeroBg() {
   }, []);
   return (
     <div style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <div ref={ref} style={{ position: "absolute", top: 0, left: 0, right: 0, height: 540, willChange: "transform, opacity" }}>
+      <div ref={ref} style={{ position: "absolute", top: 0, left: 0, right: 0, height: 540, background: "var(--home-base, #4A383B)", willChange: "transform, opacity", backfaceVisibility: "hidden", transform: "translate3d(0,0,0)" }}>
         {/* terävä kuva ylhäällä */}
         <div className="vire-hero-bg" style={{ position: "absolute", inset: 0 }}></div>
         {/* blurautuva kopio (maskattu alaspäin) */}
@@ -12617,8 +12656,8 @@ function HeroBg() {
           filter: "blur(18px)", transform: "scale(1.06)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent 32%, #000 64%)", maskImage: "linear-gradient(to bottom, transparent 32%, #000 64%)",
         }}></div>
-        {/* tasoitus teal-väriin + yläosan tummennus tekstille */}
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(24,14,16,0.46) 0%, rgba(24,14,16,0.06) 26%, rgba(74,56,59,0) 50%, var(--home-base, #4A383B) 92%)" }}></div>
+        {/* tasoitus home-base-väriin: ulottuu reilusti alas niin ettei kova reuna näy */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 760, background: "linear-gradient(to bottom, rgba(24,14,16,0.46) 0px, rgba(24,14,16,0.06) 140px, rgba(74,56,59,0) 270px, var(--home-base, #4A383B) 460px, var(--home-base, #4A383B) 760px)" }}></div>
       </div>
     </div>
   );
@@ -12905,6 +12944,100 @@ const MOODS = [
   { value: "stressed", icon: "annoyed", color: "var(--coral-500)", key: "mood_stressed" },
 ];
 
+/* Mittarin alla näkyvä motivoiva teksti — vaihtuu päivän mittaan (kellonaika + edistyminen). */
+function motivMessage(t, pct, now) {
+  now = now || new Date();
+  if (pct >= 100) return t("motiv_done");
+  if (pct >= 78) return t("motiv_almost");
+  const h = now.getHours();
+  const pool = h < 6 ? ["motiv_night", "motiv_kind1"]
+    : h < 10 ? ["motiv_dawn", "motiv_morning", "motiv_kind2"]
+    : h < 14 ? ["motiv_midday", "motiv_kind2"]
+    : h < 18 ? ["motiv_afternoon", "motiv_kind1"]
+    : h < 22 ? ["motiv_evening", "motiv_kind1"]
+    : ["motiv_night", "motiv_kind1"];
+  const seed = now.getFullYear() * 366 + (now.getMonth() * 31 + now.getDate()) + h;
+  return t(pool[seed % pool.length]);
+}
+
+/* Johdetut oivallukset käyttäjän omasta datasta. Palauttaa priorisoidun listan. */
+function computeInsights(store, t, lang) {
+  const out = [];
+  const days = store.state.days || {};
+  const keys = Object.keys(days);
+  const hasDay = (d) => d && (d.meals.length || d.workouts.length || d.steps || d.water || d.mood);
+  const loggedCount = keys.filter((k) => hasDay(days[k])).length;
+  if (loggedCount < 2) return { ready: false, items: [] };
+
+  // 1) putki (yhtäjaksoiset päivät tähän asti)
+  let streak = 0;
+  for (let i = 0; i < 120; i++) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    if (hasDay(days[window.dateKey(d)])) streak++; else break;
+  }
+  if (streak >= 2) out.push({ icon: "flame", tint: "var(--apricot-500)", title: t("ins_streak", { n: streak }), body: t("ins_streak_s") });
+
+  // 2) askeltrendi (3 tuoreinta vs 3 edellistä)
+  const last6 = [];
+  for (let i = 5; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); last6.push((days[window.dateKey(d)] || {}).steps || 0); }
+  const recent = last6.slice(3).reduce((a, b) => a + b, 0);
+  const prev = last6.slice(0, 3).reduce((a, b) => a + b, 0);
+  if (prev > 0 && recent > 0) {
+    const ch = Math.round(((recent - prev) / prev) * 100);
+    if (ch >= 8) out.push({ icon: "trending-up", tint: "var(--sage-500)", title: t("ins_steptrend_up"), body: t("ins_steptrend_up_s", { n: ch }) });
+    else if (ch <= -8) out.push({ icon: "trending-down", tint: "var(--brand-500)", title: t("ins_steptrend_dn"), body: t("ins_steptrend_dn_s") });
+  }
+
+  // 3) aktiivisin viikonpäivä (askeleet + liikeminuutit)
+  const byDow = [0, 0, 0, 0, 0, 0, 0];
+  keys.forEach((k) => { const d = days[k]; const dow = (window.parseKey(k).getDay() + 6) % 7; byDow[dow] += (d.steps || 0) + d.workouts.reduce((a, w) => a + (Number(w.mins) || 0) * 60, 0); });
+  const maxDow = byDow.indexOf(Math.max(...byDow));
+  if (byDow[maxDow] > 0) {
+    const name = window.DOW_LONG[lang][(maxDow + 1) % 7];
+    out.push({ icon: "calendar-heart", tint: "var(--lilac-500)", title: t("ins_bestday", { d: name.charAt(0).toUpperCase() + name.slice(1) }), body: t("ins_bestday_s") });
+  }
+
+  // 4) vesi tällä viikolla
+  const goal = store.state.goals.water || 8;
+  const wd = window.weekDays(new Date()).filter((d) => ((days[window.dateKey(d)] || {}).water || 0) >= goal).length;
+  if (wd >= 1) out.push({ icon: "droplet", tint: "var(--brand-400)", title: t("ins_water"), body: t("ins_water_s", { n: wd }) });
+
+  // 5) keskimääräinen energia (tuoreet kirjatut päivät)
+  const en = keys.map((k) => days[k].meals.reduce((a, m) => a + (Number(m.kcal) || 0), 0)).filter((x) => x > 0);
+  if (en.length >= 2) { const avg = Math.round(en.reduce((a, b) => a + b, 0) / en.length); out.push({ icon: "flame", tint: "var(--apricot-500)", title: t("ins_energy", { n: window.numFmt(lang, avg) }), body: t("ins_energy_s") }); }
+
+  return { ready: out.length > 0, items: out.slice(0, 3) };
+}
+
+function InsightsCard({ store, t, lang }) {
+  const { Card } = window.VS;
+  const { L, SectionLabel } = window;
+  const res = computeInsights(store, t, lang);
+  return (
+    <div>
+      <SectionLabel>{t("insights_t")}</SectionLabel>
+      {!res.ready ? (
+        <Card padding="md" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ width: 38, height: 38, borderRadius: 11, background: "var(--brand-50)", color: "var(--brand-600)", display: "grid", placeItems: "center", flexShrink: 0 }}><L name="sparkles" size={19} /></div>
+          <div style={{ fontSize: 13.5, color: "var(--text-secondary)", lineHeight: 1.45 }}>{t("ins_more")}</div>
+        </Card>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {res.items.map((it, i) => (
+            <Card key={i} flat style={{ display: "flex", alignItems: "center", gap: 13, padding: "13px 14px" }}>
+              <div style={{ width: 40, height: 40, borderRadius: 12, background: "var(--ink-50)", color: it.tint, display: "grid", placeItems: "center", flexShrink: 0 }}><L name={it.icon} size={20} /></div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontWeight: 700, fontSize: 14.5 }}>{it.title}</div>
+                <div style={{ fontSize: 12.5, color: "var(--text-muted)", lineHeight: 1.4 }}>{it.body}</div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function TodayScreen({ store, onGo, onMenu, t, lang }) {
   const { Card, ProgressRing, Badge } = window.VS;
   const { L, HeroBg, GaugeSemi, HamburgerButton, SectionLabel } = window;
@@ -12991,10 +13124,8 @@ function TodayScreen({ store, onGo, onMenu, t, lang }) {
             <div style={{ fontSize: 46, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{pct}<span style={{ fontSize: 22, fontWeight: 700 }}>%</span></div>
             <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.8)", fontWeight: 700, letterSpacing: ".04em", textTransform: "uppercase", marginTop: 2 }}>{t("of_goals")}</div>
           </GaugeSemi>
-          <div style={{ marginTop: 2 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "6px 14px", borderRadius: 999, background: "rgba(255,255,255,0.16)", border: "1px solid rgba(255,255,255,0.22)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", color: "#fff", fontSize: 13, fontWeight: 700 }}>
-              <span style={{ width: 7, height: 7, borderRadius: 999, background: "#fff" }}></span>{t("in_good_vire")}
-            </span>
+          <div style={{ marginTop: 6, maxWidth: 280, textAlign: "center" }}>
+            <span style={{ color: "rgba(255,255,255,0.92)", fontSize: 15, fontWeight: 600, lineHeight: 1.4, textWrap: "balance" }}>{motivMessage(t, pct)}</span>
           </div>
         </div>
       </div>
@@ -13021,6 +13152,9 @@ function TodayScreen({ store, onGo, onMenu, t, lang }) {
             </div>
           </Card>
         ) : null}
+
+        {/* oivallukset */}
+        <InsightsCard store={store} t={t} lang={lang} />
 
         {/* fiilis */}
         <MoodField store={store} dayKey={key} t={t} lang={lang} />
@@ -14422,7 +14556,16 @@ function buildSummaryHTML(store, lang) {
     th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#818AA1}
     tfoot td{font-weight:800;border-top:2px solid #C8CCD9}
     @media print{body{padding:18px}}
+    .vtoolbar{position:fixed;top:0;left:0;right:0;display:flex;gap:10px;justify-content:flex-end;align-items:center;padding:12px 16px;background:rgba(248,249,252,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #E7E0E1;z-index:10}
+    .vtoolbar button{font-family:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:12px;border:1px solid #D0C8CA;background:#fff;color:#3B3439;cursor:pointer}
+    .vtoolbar button.prim{background:#BCA5A8;border-color:#BCA5A8;color:#3D2F31}
+    body{padding-top:72px}
+    @media print{.no-print{display:none!important}body{padding-top:18px}}
   </style></head><body>
+  <div class="vtoolbar no-print">
+    <button onclick="window.close()">${t("export_close")}</button>
+    <button class="prim" onclick="window.print()">${t("export_print")}</button>
+  </div>
   <div class="brand"><div class="dot">V</div><div><div style="font-weight:800;font-size:18px">Vire</div></div></div>
   <h1>${t("export_title")}</h1>
   <p class="sub">${p.name ? p.name + " · " : ""}${window.longDateL(lang)}</p>
@@ -14451,7 +14594,7 @@ function ExportView({ store, t, lang, onBack, onMenu }) {
   const exportPDF = () => {
     const html = buildSummaryHTML(store, lang);
     const w = window.open("", "_blank");
-    if (w) { w.document.write(html); w.document.close(); setTimeout(() => { try { w.focus(); w.print(); } catch (e) {} }, 350); }
+    if (w) { w.document.write(html); w.document.close(); }
     else { downloadBlob(html, `vire-koonti-${window.dateKey()}.html`, "text/html"); }
     setDone("pdf"); setTimeout(() => setDone(""), 2200);
   };
@@ -14554,7 +14697,7 @@ Object.assign(window, { LicenseView, MessagesView, ExportView });
         const main = tab === "profiili"
           ? <window.ProfileModule store={store} t={t} lang={lang} page={profilePage} setPage={setProfilePage} onMenu={openMenu} />
           : <window.TodayScreen store={store} t={t} lang={lang} onGo={setTab} onMenu={openMenu} />;
-        content = <window.AppFrame immersive={tab === "today"} bottom={<window.BottomNav items={items} />}>{main}</window.AppFrame>;
+        content = <window.AppFrame immersive={tab === "today"} bottom={<window.BottomNav items={tab === "today" ? items.filter((i) => i.id !== "today") : items} />}>{main}</window.AppFrame>;
       }
 
       const inProfile = tab === "profiili";
